@@ -10,6 +10,8 @@
 
 body {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -20,6 +22,8 @@ a {
 .app {
   width: 80%;
   margin: auto;
+  flex: 1;
+  min-height: calc(100vh - 200px); /* Account for navbar and footer */
 }
 
 @keyframes fadeIn {
