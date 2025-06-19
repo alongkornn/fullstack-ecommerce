@@ -11,10 +11,12 @@ const LoginPage = ( {setIsLogin} ) => {
     
     const handleStateChange = (newState) => {
         setCurrState(newState);
-        setName("");
         setEmail("");
         setPassword("");
         setShowPassword(false);
+        if (newState === "login") {
+            setName("");
+        }
     };
     
     return (
@@ -25,13 +27,15 @@ const LoginPage = ( {setIsLogin} ) => {
                     <img onClick={() => setIsLogin(false)} src={assets.cross_icon} alt="" />
                 </div>
                 <div className="login-page-input">
-                    <input 
-                        type="text" 
-                        placeholder='Enter your name' 
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                    />
+                    {currState === "signup" && (
+                        <input 
+                            type="text" 
+                            placeholder='Enter your name' 
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
+                    )}
                     <input 
                         type="email" 
                         placeholder='Enter your email' 
